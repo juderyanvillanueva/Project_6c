@@ -1,0 +1,14 @@
+#:kivy 2.0.0
+
+<LoadingScore>:
+    name: '_loading_score_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+
+    Image:
+        source: 'videos/load.gif'
+
+

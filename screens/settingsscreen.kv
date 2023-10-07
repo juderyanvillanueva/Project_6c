@@ -1,0 +1,117 @@
+#:kivy 2.0.0
+
+<SettingsScreen>:
+    name: '_settings_screen_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+    Button:
+        size_hint: .15, .08
+        background_color: 0,0,0,0
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+        on_press: root.button_press()
+        on_release: root.button_release()
+    Image:
+        id: backbutton
+        source: 'images/back1.png'
+        size_hint: .15, .08
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+
+    MDIconButton:
+        icon: "exit-to-app"
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.1, 'center_y': 0.95}
+        on_press: app.stop()
+
+    MDFillRoundFlatIconButton:
+        text: 'TIPS & GUIDES'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "23"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.80}
+        size_hint: (0.4, 0.08)
+        md_bg_color: 1/255, 229/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_press: root.click()
+        on_release:
+            root.manager.current = '_about_'
+            root.manager.transition.direction = 'up'
+
+    MDIconButton:
+        id: mutebtn
+        icon: "volume-high"
+        icon_color: app.theme_cls.primary_color
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.30, 'center_y': 0.65}
+        on_release: app.toggle_mute_soundfx(), root.change_icon()
+
+    MDIconButton:
+        id: mutemusicbtn
+        icon: "music"
+        icon_color: app.theme_cls.primary_color
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.70, 'center_y': 0.65}
+        on_release: app.toggle_mute(), root.change_icon_music()
+
+    MDLabel:
+        id: music
+        text: "Music"
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H4'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.53}
+
+    MDSlider:
+        id: musicslider
+        min: 0
+        max: 1
+        hint: False
+        step: 0.01
+        color: "red"
+        on_value: root.update_music_icon(self.value)
+        size_hint: None, None
+        size_hint_x: .75
+        halign: 'center'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.50}
+
+    MDLabel:
+        id: sounds
+        text: "Sound Effects"
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H4'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+
+    MDSlider:
+        id: soundslider
+        color: "red"
+        step: 0.01
+        hint: False
+        min: 0
+        max: 1
+        size_hint: None, None
+        size_hint_x: .75
+        halign: 'center'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.37}
+    MDFillRoundFlatIconButton:
+        text: 'LOGOUT'
+        icon: 'logout'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "23"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.20}
+        size_hint: (0.4, 0.08)
+        md_bg_color: 1/255, 229/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_press: root.click()
+        on_release:
+            root.manager.current = '_login_screen_'
+            root.manager.transition.direction = 'down'

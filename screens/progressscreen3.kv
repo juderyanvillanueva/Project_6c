@@ -1,0 +1,150 @@
+#:kivy 2.0.0
+
+<ProgressScreen3>:
+    name: '_progress_screen3_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+
+    Button:
+        size_hint: .15, .08
+        background_color: 0,0,0,0
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+        on_press: root.button_press()
+        on_release: root.button_release()
+    Image:
+        id: backbutton
+        source: 'images/back1.png'
+        size_hint: .15, .08
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+
+#-----------------------HAPPY---------------------
+    MDLabel:
+        id: grid
+        text: "Average Times"
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H3'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+
+#------------------------ROW ONE-----------------------------
+    MDLabel:
+        text: 'Happy'
+        halign: 'center'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.87}
+        font_style: 'H4'
+        font_name: "Sunny Spells"
+
+    Image:
+        id: wrong1
+        source: 'gifs/sad.gif'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.8}
+        size_hint: .20, .10
+
+    MDLabel:
+        id: happytime
+        text: ''
+        halign: 'center'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.7}
+        size_hint: .28, .18
+
+    MDLabel:
+        text: 'Sad'
+        halign: 'center'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.87}
+        font_style: 'H4'
+        font_name: "Sunny Spells"
+
+    Image:
+        id: right1
+        source: 'gifs/happy.gif'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.8}
+        size_hint: .20, .10
+
+    MDLabel:
+        id: sadtime
+        text: ''
+        halign: 'center'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.7}
+        size_hint: .28, .18
+
+#------------------------ROW TWO-----------------------------
+
+    MDLabel:
+        text: 'Angry'
+        halign: 'center'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.57}
+        font_style: 'H4'
+        font_name: "Sunny Spells"
+    Image:
+        id: right2
+        source: 'gifs/happy.gif'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.5}
+        size_hint: .20, .10
+    MDLabel:
+        id: angrytime
+        text: ''
+        halign: 'center'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.4}
+        size_hint: .28, .18
+
+    MDLabel:
+        text: 'Fear'
+        halign: 'center'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.57}
+        font_style: 'H4'
+        font_name: "Sunny Spells"
+    Image:
+        id: wrong2
+        source: 'gifs/angry.gif'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.5}
+        size_hint: .20, .10
+    MDLabel:
+        id: feartime
+        text: ''
+        halign: 'center'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.4}
+        size_hint: .28, .18
+
+#------------------------ROW THREE-----------------------------
+
+    MDLabel:
+        text: 'Surprise'
+        halign: 'center'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.27}
+        font_style: 'H4'
+        font_name: "Sunny Spells"
+    Image:
+        id: wrong3
+        source: 'gifs/sad.gif'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.2}
+        size_hint: .20, .10
+    MDLabel:
+        id: surprisetime
+        text: 't'
+        halign: 'center'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.1}
+        size_hint: .28, .18
+
+    MDLabel:
+        text: 'Disgust'
+        halign: 'center'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.27}
+        font_style: 'H4'
+        font_name: "Sunny Spells"
+    Image:
+        id: right3
+        source: 'gifs/happy.gif'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.2}
+        size_hint: .20, .10
+    MDLabel:
+        id: disgusttime
+        text: ''
+        halign: 'center'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.1}
+        size_hint: .28, .18

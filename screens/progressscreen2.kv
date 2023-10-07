@@ -1,0 +1,74 @@
+#:kivy 2.0.0
+
+<ProgressScreen2>:
+    name: '_progress_screen2_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+    Button:
+        size_hint: .15, .08
+        background_color: 0,0,0,0
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+        on_press: root.button_press()
+        on_release: root.button_release()
+    Image:
+        id: backbutton
+        source: 'images/back1.png'
+        size_hint: .15, .08
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+
+    MDIconButton:
+        icon: "exit-to-app"
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.1, 'center_y': 0.95}
+        on_press: app.stop()
+
+    MDLabel:
+        text: ""
+        id: scorelabel
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H3'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+    MDLabel:
+        text: ""
+        id: errorlabel
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H3'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+
+    MDLabel:
+        text: "Performance: "
+        id: performancelabel
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H3'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+
+
+    MDFillRoundFlatIconButton:
+        text: "Reset Score"
+        icon: 'motion-play'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "23"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.17}
+        size_hint: (0.4, 0.08)
+        md_bg_color: 1/255, 204/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_press: root.click()
+        on_release:
+            root.reset()
+            root.show_popup()

@@ -1,0 +1,84 @@
+#:kivy 2.0.0
+<DynamicLabel@Label>:
+    font_size: 32
+    size_hint_x: .8
+    font_name: "Sunny Spells"
+    theme_text_color: 'black'
+    text_size: root.width, None
+    halign: "center"
+<ChoiceButtons@Button>:
+    background_color: 0,1,1,1
+    size_hint: .3,.2
+    font_size: 24
+    text_size: root.width, None
+    halign: "center"
+
+<QuizScreen>:
+    name: '_quiz_screen_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+    GridLayout:
+
+        id: grid
+        size: root.width, root.height
+        rows: 3
+        GridLayout:
+
+            cols: 2
+            size_hint: 1, .1
+            GridLayout:
+                cols: 4
+
+                MDIconButton:
+                    icon: "keyboard-backspace"
+                    on_press:
+                        root.manager.current = "_childplay_screen_"
+                        root.manager.transition.direction = 'right'
+
+
+
+                MDIconButton:
+                    icon: "exit-to-app"
+                    on_press: app.stop()
+
+                MDIconButton:
+                    id: mutemusicbtn
+                    icon: "music"
+                    on_release: app.toggle_mute(), root.change_icon_music()
+
+                MDIconButton:
+                    id: mutebtn
+                    icon: "volume-high"
+                    on_release: app.toggle_mute_soundfx(), root.change_icon()
+
+        DynamicLabel:
+            id: phrases
+            font_size: 32
+
+        GridLayout:
+            rows: 4
+
+            ChoiceButtons:
+                id: one
+                background_color: .3,0,1,1
+
+                on_press: root.one()
+
+            ChoiceButtons:
+                id: two
+                background_color: 0,.3,1,1
+                on_press: root.two()
+
+            ChoiceButtons:
+                id: three
+                background_color: 0,1,.3,1
+                on_press: root.three()
+
+            ChoiceButtons:
+                id: four
+                background_color: .3,1,1,1
+                on_press: root.four()
+                on_press: if self.text == 'Quit?': root.manager.current = "_childplay_screen_"

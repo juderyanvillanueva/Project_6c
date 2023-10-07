@@ -1,0 +1,57 @@
+#:kivy 2.0.0
+BoxLayout:
+    orientation: 'vertical'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: '../images/bg.png'  # Relative path to the image file
+    GridLayout:
+
+        cols: 2
+        size_hint: 1, .1
+        GridLayout:
+            cols: 3
+
+            MDIconButton:
+                icon: "keyboard-backspace"
+                on_press: app.stop()
+
+            MDIconButton:
+                id: mutemusicbtn
+                icon: "music"
+                on_release: app.mutemusic()
+
+            MDIconButton:
+                id: mutebtn
+                icon: "volume-high"
+                on_release: app.mutesound()
+    MDLabel:
+        id: label
+        text: "Happy"
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H2'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.90}
+
+
+    Image:
+        id: image
+        pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+
+    Image:
+        id: expression
+        source: 'gifs/orig2/happy.gif'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+        size_hint: .95, .5
+
+    MDLabel:
+        text: "Copy Me!"
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        font_style: 'H3'
+        font_name: "Sunny Spells"

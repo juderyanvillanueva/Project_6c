@@ -1,0 +1,73 @@
+#:kivy 2.0.0
+
+<ProgressList>:
+    name: '_progresslist_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+
+    Button:
+        size_hint: .15, .08
+        background_color: 0,0,0,0
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+        on_press: root.button_press()
+        on_release: root.button_release()
+    Image:
+        id: backbutton
+        source: 'images/back1.png'
+        size_hint: .15, .08
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+
+    MDIconButton:
+        icon: "home"
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.1, 'center_y': 0.95}
+        on_press:
+            root.manager.current = "_main_screen_"
+            root.manager.transition.direction = 'up'
+
+    MDFillRoundFlatIconButton:
+        text: 'Exercise 1'
+        icon: 'emoticon'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "20sp"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+        size_hint: (0.4, 0.08)
+        md_bg_color: 1/255, 229/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_press: root.click()
+        on_release:
+            root.manager.current = '_progress_screen_'
+            root.manager.transition.direction = 'right'
+    MDFillRoundFlatIconButton:
+        text: 'Exercise 2'
+        icon: 'handshake'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "20sp"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.50}
+        size_hint: (0.4, 0.08)
+        md_bg_color: 1/255, 229/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_press: root.click()
+        on_release:
+            root.manager.current = '_progress_screen2_'
+            root.manager.transition.direction = 'right'
+
+    MDFillRoundFlatIconButton:
+        text: 'Exercise 3'
+        icon: 'face-recognition'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "20sp"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.25}
+        size_hint: (0.4, 0.08)
+        md_bg_color: 1/255, 229/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_press: root.click()
+        on_release:
+            root.manager.current = '_progress_screen3_'
+            root.manager.transition.direction = 'right'

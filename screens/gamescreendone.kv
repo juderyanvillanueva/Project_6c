@@ -1,0 +1,32 @@
+#:kivy 2.0.0
+
+<GameScreenDone>:
+    name: '_gamescreen_done_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+    MDLabel:
+        text: "Good Job! You have finished the 1st stage"
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H3'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+    MDFillRoundFlatIconButton:
+        text: 'NEXT'
+        icon: 'motion-play'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "23"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+        size_hint: (0.4, 0.08)
+        md_bg_color: 1/255, 229/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_press: root.click()
+        on_release:
+            root.manager.current = '_childplay_screen_'
+            root.manager.transition.direction = 'left'

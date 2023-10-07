@@ -1,0 +1,21 @@
+#:kivy 2.0.0
+
+<Exercise3>:
+    name: '_exercise3_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+
+    Button:
+        size_hint: .15, .08
+        background_color: 0,0,0,0
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+        on_press: root.button_press()
+        on_release: root.button_release()
+    Image:
+        id: backbutton
+        source: 'images/back1.png'
+        size_hint: .15, .08
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}

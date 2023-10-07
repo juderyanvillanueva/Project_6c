@@ -1,0 +1,13 @@
+#:kivy 2.0.0
+
+<LoadScreen>:
+    name: '_load_screen_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+
+    Video:
+        source: 'videos/load1.mp4'
+        state: 'play'

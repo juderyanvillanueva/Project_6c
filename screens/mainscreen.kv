@@ -1,0 +1,61 @@
+#:kivy 2.0.0
+
+<MainScreen>:
+    name: '_main_screen_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/mainbg.png'
+
+    MDIconButton:
+        id:homege
+        icon: "exit-to-app"
+        icon_color: app.theme_cls.primary_color
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.1, 'center_y': 0.95}
+        on_release: app.stop()
+
+    MDIconButton:
+        id: settingsbtn
+        icon: "cog"
+        icon_color: app.theme_cls.primary_color
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.88, 'center_y': 0.95}
+        on_press: root.click()
+        on_release:
+            root.manager.current = '_settings_screen_'
+            root.manager.transition.direction = 'right'
+
+
+    MDFillRoundFlatIconButton:
+        id: parentbutton
+        text: ''
+        icon: 'account-supervisor-circle'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "20"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.28}
+        size_hint: (0.6, 0.08)
+        md_bg_color: 1/255, 229/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_press: root.click()
+        on_release:
+            root.manager.current = '_parent_screen_'
+            root.manager.transition.direction = 'down'
+
+    MDFillRoundFlatIconButton:
+        id: childbutton
+        text: ''
+        icon: 'baby-face-outline'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "20"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+        size_hint: (0.6, 0.08)
+        md_bg_color: 1/255, 229/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_press: root.click()
+        on_release:
+            root.manager.current = '_childstart_screen_'
+            root.manager.transition.direction = 'down'

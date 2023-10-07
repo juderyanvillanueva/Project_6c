@@ -1,0 +1,87 @@
+#:kivy 2.0.0
+
+<LoginScreen>:
+    name: '_login_screen_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/blurredbg.png'
+
+    MDCard:
+        size_hint: None, None
+        size: 250, 320
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        md_bg_color: 36/255, 163/255, 219/255, 1
+        elevation: 3
+        padding: 25
+        spacing: 25
+        orientation: 'vertical'
+
+    MDLabel:
+        id: login_label
+        text: "WELCOME TO\n COPY ME!"
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H4'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.67}
+
+    MDLabel:
+        id: warning
+        text: ""
+        size_hint_y: None
+        halign: 'center'
+        color: 'red'
+        bold: True
+        text_size: cm(4), cm(2)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.62}
+
+    MDTextField:
+        id: user
+        mode: "fill"
+        hint_text: 'Enter Username'
+        size_hint_x: None
+        width: 180
+        font_size: 18
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+
+    MDTextField:
+        id: password
+        mode: "fill"
+        hint_text: 'Enter Password'
+        size_hint_x: None
+        width: 180
+        font_size: 18
+        password: True
+        pos_hint: {'center_x': 0.5, 'center_y': 0.45}
+
+    MDFillRoundFlatButton:
+        id: login_button
+        text: ' LOGIN '
+        size_hint_x: None
+        width: 140
+        font_size: 18
+        pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+        theme_text_color: 'Primary'
+        font_style: 'H5'
+        font_name: "Sunny Spells"
+        md_bg_color: 34/255, 173/255, 75/255, 1
+        on_release: root.login()
+
+    MDFillRoundFlatButton:
+        id: register_button
+        text: 'REGISTER'
+        size_hint_x: None
+        width: 140
+        font_size: 18
+        pos_hint: {'center_x': 0.5, 'center_y': 0.28}
+        theme_text_color: 'Primary'
+        font_style: 'H5'
+        font_name: "Sunny Spells"
+        md_bg_color: 34/255, 173/255, 75/255, 1
+        on_release:
+            root.manager.current = '_register_screen_'
+            root.manager.transition.direction = 'left'

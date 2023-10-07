@@ -1,0 +1,128 @@
+#:kivy 2.0.0
+
+<GameScreen6>:
+    name: '_game_screen6_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+
+    Button:
+        size_hint: .15, .08
+        background_color: 0,0,0,0
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+        on_press: root.button_press()
+        on_release: root.button_release()
+    Image:
+        id: backbutton
+        source: 'images/back1.png'
+        size_hint: .15, .08
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+
+    MDIconButton:
+        id: mutebtn
+        icon: "volume-high"
+        icon_color: app.theme_cls.primary_color
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.1, 'center_y': 0.95}
+        on_release: app.toggle_mute_soundfx(), root.change_icon()
+
+    MDIconButton:
+        id: mutemusicbtn
+        icon: "music"
+        icon_color: app.theme_cls.primary_color
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.2, 'center_y': 0.95}
+        on_release: app.toggle_mute(), root.change_icon_music()
+#-----------------------DISGUST---------------------
+    MDLabel:
+        id: grid
+        text: "DISGUST"
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H2'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+
+#------------------------ROW-ONE-----------------------------
+    Image:
+        id: wrong1
+        source: 'gifs/orig2/surprise.gif'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.8}
+        size_hint: .30, .20
+
+    Button:
+        id: wrong1_btn
+        pos_hint: {'center_x': 0.25, 'center_y': 0.8}
+        size_hint: .28, .18
+        on_press: root.wrong_ans1(), root.incorrect(), app.save_error()
+        background_color: 0,0,0,0
+
+    Image:
+        id: right1
+        source: 'gifs/orig2/disgust.gif'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.8}
+        size_hint: .28, .18
+
+    Button:
+        id: right1_btn
+        pos_hint: {'center_x': 0.75, 'center_y': 0.8}
+        size_hint: .28, .18
+        on_press: root.right_ans1(), root.count(), app.save_score()
+        background_color: 0,0,0,0
+
+#------------------------ROW TWO-----------------------------
+
+    Image:
+        id: right2
+        source: 'gifs/orig2/disgust.gif'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.5}
+        size_hint: .28, .18
+
+    Button:
+        id: right2_btn
+        pos_hint: {'center_x': 0.25, 'center_y': 0.5}
+        size_hint: .28, .18
+        on_press: root.right_ans2(), root.count(), app.save_score()
+        background_color: 0,0,0,0
+    Image:
+        id: wrong2
+        source: 'gifs/orig2/fear.gif'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.5}
+        size_hint: .28, .18
+
+    Button:
+        id: wrong2_btn
+        pos_hint: {'center_x': 0.75, 'center_y': 0.5}
+        size_hint: .28, .18
+        on_press: root.wrong_ans2(), root.incorrect(), app.save_error()
+        background_color: 0,0,0,0
+
+#------------------------ROW THREE-----------------------------
+
+    Image:
+        id: wrong3
+        source: 'gifs/orig2/happy.gif'
+        pos_hint: {'center_x': 0.25, 'center_y': 0.2}
+        size_hint: .28, .18
+    Button:
+        id: wrong3_btn
+        pos_hint: {'center_x': 0.25, 'center_y': 0.2}
+        size_hint: .28, .18
+        on_press: root.wrong_ans3(), root.incorrect(), app.save_error()
+        background_color: 0,0,0,0
+
+    Image:
+        id: right3
+        source: 'gifs/orig2/disgust.gif'
+        pos_hint: {'center_x': 0.75, 'center_y': 0.2}
+        size_hint: .28, .18
+    Button:
+        id: right3_btn
+        pos_hint: {'center_x': 0.75, 'center_y': 0.2}
+        size_hint: .28, .18
+        on_press: root.right_ans3(), root.count(), app.save_score()
+        background_color: 0,0,0,0

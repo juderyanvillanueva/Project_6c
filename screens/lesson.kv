@@ -1,0 +1,54 @@
+#:kivy 2.0.0
+
+<Lesson>:
+    name: '_lesson_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+    Button:
+        size_hint: .15, .08
+        background_color: 0,0,0,0
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+        on_press: root.button_press()
+        on_release: root.button_release()
+    Image:
+        id: backbutton
+        source: 'images/back1.png'
+        size_hint: .15, .08
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+
+    Image:
+        id: expression
+        source: 'gifs/orig2/happy.gif'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.70}
+        size_hint: .95, .5
+
+    MDLabel:
+        id: expression_description
+        text: "The happy expression is characterized by a wide smile, raised cheeks, and often, crinkles around the eyes. It conveys feelings of joy, contentment, and satisfaction."
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H5'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+        size_hint_x: 0.9
+
+    MDFillRoundFlatIconButton:
+        id: next_button
+        text: 'NEXT'
+        icon: 'motion-play'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "23"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+        size_hint: (0.4, 0.08)
+        md_bg_color: 1/255, 229/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_release:
+            root.next_expression()
+
+

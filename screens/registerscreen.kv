@@ -1,0 +1,124 @@
+#:kivy 2.0.0
+
+<RegisterScreen>:
+    name: '_register_screen_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/blurredbg.png'
+
+    Button:
+        size_hint: .15, .08
+        background_color: 0,0,0,0
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+        on_press: root.button_press()
+        on_release: root.button_release()
+    Image:
+        id: backbutton
+        source: 'images/back1.png'
+        size_hint: .15, .08
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+
+    MDCard:
+        size_hint: None, None
+        size: 250, 450
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        md_bg_color: 36/255, 163/255, 219/255, 1
+        elevation: 3
+        padding: 25
+        spacing: 25
+        orientation: 'vertical'
+
+    MDLabel:
+        id: login_label
+        text: "CREATE YOUR ACCOUNT"
+        size_hint_y: None
+        halign: 'center'
+        theme_text_color: 'Primary'
+        bold: True
+        font_style: 'H4'
+        font_name: "Sunny Spells"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.80}
+
+    MDLabel:
+        id: warning
+        text: ""
+        size_hint_y: None
+        halign: 'center'
+        color: 'red'
+        bold: True
+        text_size: cm(4), cm(2)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+
+    MDTextField:
+        id: user
+        mode: "fill"
+        hint_text: 'Create Username'
+        size_hint_x: None
+        width: 180
+        font_size: 18
+        pos_hint: {'center_x': 0.5, 'center_y': 0.68}
+
+    MDTextField:
+        id: phone
+        mode: "fill"
+        hint_text: '9---------'  # Set your fixed hint text here
+        helper_text_mode: "on_focus"
+        max_text_length: 10  # Limit input to 10 characters
+        size_hint_x: None
+        width: 145
+        font_size: 18
+        pos_hint: {'center_x': 0.55, 'center_y': 0.58}
+
+    MDLabel:
+        id: indicator
+        text: "+63"
+        size_hint_y: None
+        halign: 'center'
+        bold: True
+        text_size: cm(4), cm(2)
+        pos_hint: {'center_x': 0.3, 'center_y': 0.58}
+
+
+    MDTextField:
+        id: full_name
+        mode: "fill"
+        hint_text: 'Enter your Full Name'
+        size_hint_x: None
+        width: 180
+        font_size: 18
+        pos_hint: {'center_x': 0.5, 'center_y': 0.48}
+
+    MDTextField:
+        id: password
+        mode: "fill"
+        hint_text: 'Create Password'
+        size_hint_x: None
+        width: 180
+        font_size: 18
+        password: True
+        pos_hint: {'center_x': 0.5, 'center_y': 0.38}
+
+    MDTextField:
+        id: confirm_pass
+        mode: "fill"
+        hint_text: 'Confirm Password'
+        size_hint_x: None
+        width: 180
+        font_size: 18
+        password: True
+        pos_hint: {'center_x': 0.5, 'center_y': 0.28}
+
+    MDFillRoundFlatButton:
+        id: submit_button
+        text: 'SUBMIT'
+        size_hint_x: None
+        width: 140
+        font_size: 18
+        pos_hint: {'center_x': 0.5, 'center_y': 0.18}
+        theme_text_color: 'Primary'
+        font_style: 'H5'
+        font_name: "Sunny Spells"
+        md_bg_color: 34/255, 173/255, 75/255, 1
+        on_release: root.show_popup()

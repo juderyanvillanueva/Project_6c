@@ -1,0 +1,27 @@
+#:kivy 2.0.0
+
+<LoadingCamera>:
+    name: '_loading_camera_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/bg.png'
+
+    Image:
+        source: 'videos/load.gif'
+
+
+    MDFillRoundFlatIconButton:
+        text: 'BACK'
+        icon: 'motion-play'
+        icon_size: "40sp"
+        font_name: "Sunny Spells"
+        font_size: "23"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+        size_hint: (0.4, 0.08)
+        md_bg_color: 1/255, 229/255, 255/255, 1
+        text_color: 0, 0, 0, 1
+        on_release:
+            root.manager.current = '_childplay_screen_'
+            root.manager.transition.direction = 'left'

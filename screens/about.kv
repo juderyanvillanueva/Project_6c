@@ -1,0 +1,68 @@
+#:kivy 2.0.0
+
+<About>:
+    name: '_about_'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/listbg.png'
+
+    Button:
+        size_hint: .15, .08
+        background_color: 0,0,0,0
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+        on_press: root.button_press()
+        on_release: root.button_release()
+    Image:
+        id: backbutton
+        source: 'images/back1.png'
+        size_hint: .15, .08
+        pos_hint: {'center_x': 0.90, 'center_y': 0.95}
+
+    MDIconButton:
+        id: mutebtn
+        icon: "volume-high"
+        icon_color: app.theme_cls.primary_color
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.1, 'center_y': 0.95}
+        on_release: app.toggle_mute_soundfx(), root.change_icon()
+
+    MDIconButton:
+        id: mutemusicbtn
+        icon: "music"
+        icon_color: app.theme_cls.primary_color
+        size_hint: (0.04, 0.08)
+        pos_hint: {'center_x': 0.2, 'center_y': 0.95}
+        on_release: app.toggle_mute(), root.change_icon_music()
+
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        size_hint: .7, .8
+        size: 360, 600  # Set the size of the ScrollView
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Center the ScrollView
+
+        Label:
+            id: aboutlabel
+            color: 'black'
+            size_hint_y: None
+            width: self.parent.width  # Set the width to match the parent (ScrollView)
+            text_size: self.width, None
+            height: self.texture_size[1]
+            halign: 'center'  # Center-align the text
+            markup: True  # Enable markup tags in the text
+            text:
+                '[b]About:[/b]\n' \
+                'CopyMe is a one-of-a-kind educational application for children with Autism Spectrum Disorder (ASD), featuring specially designed learning activities that are engaging and interactive, tailored to the unique needs and preferences of children with ASD."\n' \
+                '\n' \
+                '[b]Lesson:[/b] A short introduction about the six (6) different facial expressions in order for the children to familiarize themselves and learn at the beginning of the task.\n' \
+                '\n' \
+                '[b]Exercise 1:[/b] How To Play\n' \
+                'The child will be able to choose and match every facial expression with their corresponding pairs. Every correct response will be counted at tally at the end of the exercise.\n' \
+                '\n' \
+                '[b]Exercise 2:[/b] How To Play\n' \
+                'Here at Exercise 2, The children will be given some scenario in which they will choose what appropriate expressions correspond to the situation.\n' \
+                '\n' \
+                '[b]Exercise 3:[/b] How To Play\n' \
+                'Exercise 3 is the most interesting part of the exercise. It is where there is an involvement of a camera taking the facial expressions of the children who is demonstrating the facial expression given in the screen of their phones.'
