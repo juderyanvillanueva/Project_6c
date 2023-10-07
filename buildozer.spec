@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3==3.10.6,kivy==2.1.0,kivymd==1.1.1,kivy_garden.graph,pypiwin32,cython==0.29.33,sqlite3,keras,gstreamer-player,numpy,opencv,opencv_extras,pillow,tensorflow==2.12.0,pygments,h5py,sdl2_ttf==2.20.1,mysql-connector==2.2.9,bcrypt,requests,urllib3
+requirements = python3==3.10.6,kivy==2.1.0,kivymd==1.1.1,kivy_garden.graph,pypiwin32,sqlite3,keras,gstreamer-player,numpy,opencv,opencv_extras,pillow,tensorflow==2.12.0,pygments,h5py,sdl2_ttf==2.20.1,mysql-connector,bcrypt,requests,urllib3
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
