@@ -27,7 +27,7 @@ from kivy.lang import Builder
 from kivymd.uix.dialog import MDDialog
 
 from keras.models import model_from_json
-from android.permissions import request_permissions, Permission
+#from android.permissions import request_permissions, Permission
 
 
 
@@ -78,10 +78,10 @@ class CameraHappy(MDApp):
             sad()
 
     def build(self):
-        request_permissions([
-        Permission.CAMERA,
-        Permission.WRITE_EXTERNAL_STORAGE,
-        Permission.READ_EXTERNAL_STORAGE])
+        # request_permissions([
+        # Permission.CAMERA,
+        # Permission.WRITE_EXTERNAL_STORAGE,
+        # Permission.READ_EXTERNAL_STORAGE])
         self.root = Builder.load_file("camerahappy.kv")
         self.mutebtn = self.root.ids.mutebtn
         self.mutemusicbtn = self.root.ids.mutemusicbtn
